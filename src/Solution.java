@@ -34,13 +34,31 @@ public class Solution {
 //        }
 //        System.out.println("================================");
 
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+//        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+//
+//        int N = Integer.parseInt(bufferedReader.readLine().trim());
+//        for(int i = 1; i <= 10; i++) {
+//            System.out.printf("%d x %d = %d%n", N, i, (N*i));
+//        }
+//
+//        bufferedReader.close();
 
-        int N = Integer.parseInt(bufferedReader.readLine().trim());
-        for(int i = 1; i <= 10; i++) {
-            System.out.printf("%d x %d = %d%n", N, i, (N*i));
+        Scanner in = new Scanner(System.in);
+        int t=in.nextInt();
+        for(int i=0;i<t;i++){
+            int a = in.nextInt();
+            int b = in.nextInt();
+            int n = in.nextInt();
+            int total = a;
+            for(int j = 0; j < n; j++) {
+                total += (Math.pow(2, j)) * b;
+                if(j == n - 1) {
+                    System.out.println(total);
+                } else {
+                    System.out.printf("%d ", total);
+                }
+            }
         }
-
-        bufferedReader.close();
+        in.close();
     }
 }

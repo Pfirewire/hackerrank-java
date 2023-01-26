@@ -9,6 +9,19 @@ import java.util.regex.*;
 
 public class Solution {
 
+    private static Scanner scan = new Scanner(System.in);
+
+    private static int B = scan.nextInt();
+    private static int H = scan.nextInt();
+
+    private static boolean flag = B > 0 && H > 0;
+
+    static {
+        if(!flag) {
+            System.out.println("java.lang.Exception: Breadth and height must be positive");
+        }
+    }
+
     public static void main(String[] args) throws IOException {
 
 //        Scanner scan = new Scanner(System.in);
@@ -84,12 +97,17 @@ public class Solution {
 //
 //        }
 
-        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
-        Scanner scan = new Scanner(System.in);
-        int lineNumber = 1;
-        do {
-            String line = scan.nextLine();
-            System.out.printf("%d %s%n", lineNumber++, line);
-        } while(scan.hasNext());
+//        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+//        Scanner scan = new Scanner(System.in);
+//        int lineNumber = 1;
+//        do {
+//            String line = scan.nextLine();
+//            System.out.printf("%d %s%n", lineNumber++, line);
+//        } while(scan.hasNext());
+
+        if(flag){
+            int area=B*H;
+            System.out.print(area);
+        }
     }
 }

@@ -8,49 +8,49 @@ import java.util.concurrent.*;
 import java.util.regex.*;
 import java.security.*;
 
-class Result {
-
-    /*
-     * Complete the 'findDay' function below.
-     *
-     * The function is expected to return a STRING.
-     * The function accepts following parameters:
-     *  1. INTEGER month
-     *  2. INTEGER day
-     *  3. INTEGER year
-     */
-
-    public static String findDay(int month, int day, int year) {
-        String dayOfWeek = "";
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(year, month, day);
-        switch (calendar.get(Calendar.DAY_OF_WEEK)) {
-            case 1:
-                dayOfWeek = "SUNDAY";
-                break;
-            case 2:
-                dayOfWeek = "MONDAY";
-                break;
-            case 3:
-                dayOfWeek = "TUESDAY";
-                break;
-            case 4:
-                dayOfWeek = "WEDNESDAY";
-                break;
-            case 5:
-                dayOfWeek = "THURSDAY";
-                break;
-            case 6:
-                dayOfWeek = "FRIDAY";
-                break;
-            case 7:
-                dayOfWeek = "SATURDAY";
-                break;
-        }
-        return dayOfWeek;
-    }
-
-}
+//class Result {
+//
+//    /*
+//     * Complete the 'findDay' function below.
+//     *
+//     * The function is expected to return a STRING.
+//     * The function accepts following parameters:
+//     *  1. INTEGER month
+//     *  2. INTEGER day
+//     *  3. INTEGER year
+//     */
+//
+//    public static String findDay(int month, int day, int year) {
+//        String dayOfWeek = "";
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.set(year, month, day);
+//        switch (calendar.get(Calendar.DAY_OF_WEEK)) {
+//            case 1:
+//                dayOfWeek = "SUNDAY";
+//                break;
+//            case 2:
+//                dayOfWeek = "MONDAY";
+//                break;
+//            case 3:
+//                dayOfWeek = "TUESDAY";
+//                break;
+//            case 4:
+//                dayOfWeek = "WEDNESDAY";
+//                break;
+//            case 5:
+//                dayOfWeek = "THURSDAY";
+//                break;
+//            case 6:
+//                dayOfWeek = "FRIDAY";
+//                break;
+//            case 7:
+//                dayOfWeek = "SATURDAY";
+//                break;
+//        }
+//        return dayOfWeek;
+//    }
+//
+//}
 
 public class Solution {
 
@@ -177,24 +177,39 @@ public class Solution {
 //            System.out.println("Unsuccessful Termination!!");
 //        }
 
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+//        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+//        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+//
+//        String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
+//
+//        int month = Integer.parseInt(firstMultipleInput[0]);
+//
+//        int day = Integer.parseInt(firstMultipleInput[1]);
+//
+//        int year = Integer.parseInt(firstMultipleInput[2]);
+//
+//        String res = Result.findDay(month, day, year);
+//
+//        bufferedWriter.write(res);
+//        bufferedWriter.newLine();
+//
+//        bufferedReader.close();
+//        bufferedWriter.close();
 
-        String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
+        Scanner scanner = new Scanner(System.in);
+        double payment = scanner.nextDouble();
+        scanner.close();
 
-        int month = Integer.parseInt(firstMultipleInput[0]);
+        String us = NumberFormat.getCurrencyInstance(Locale.US).format(payment);
+        String india = NumberFormat.getCurrencyInstance(new Locale("en", "IN")).format(payment);
+        String china = NumberFormat.getCurrencyInstance(Locale.CHINA).format(payment);
+        String france = NumberFormat.getCurrencyInstance(Locale.FRANCE).format(payment);
+        // Write your code here.
 
-        int day = Integer.parseInt(firstMultipleInput[1]);
-
-        int year = Integer.parseInt(firstMultipleInput[2]);
-
-        String res = Result.findDay(month, day, year);
-
-        bufferedWriter.write(res);
-        bufferedWriter.newLine();
-
-        bufferedReader.close();
-        bufferedWriter.close();
+        System.out.println("US: " + us);
+        System.out.println("India: " + india);
+        System.out.println("China: " + china);
+        System.out.println("France: " + france);
     }
 }
 

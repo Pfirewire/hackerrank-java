@@ -7,6 +7,7 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
 import java.security.*;
+import java.math.BigDecimal;
 
 //class Result {
 //
@@ -196,20 +197,57 @@ public class Solution {
 //        bufferedReader.close();
 //        bufferedWriter.close();
 
-        Scanner scanner = new Scanner(System.in);
-        double payment = scanner.nextDouble();
-        scanner.close();
+//        Scanner scanner = new Scanner(System.in);
+//        double payment = scanner.nextDouble();
+//        scanner.close();
+//
+//        String us = NumberFormat.getCurrencyInstance(Locale.US).format(payment);
+//        String india = NumberFormat.getCurrencyInstance(new Locale("en", "IN")).format(payment);
+//        String china = NumberFormat.getCurrencyInstance(Locale.CHINA).format(payment);
+//        String france = NumberFormat.getCurrencyInstance(Locale.FRANCE).format(payment);
+//        // Write your code here.
+//
+//        System.out.println("US: " + us);
+//        System.out.println("India: " + india);
+//        System.out.println("China: " + china);
+//        System.out.println("France: " + france);
 
-        String us = NumberFormat.getCurrencyInstance(Locale.US).format(payment);
-        String india = NumberFormat.getCurrencyInstance(new Locale("en", "IN")).format(payment);
-        String china = NumberFormat.getCurrencyInstance(Locale.CHINA).format(payment);
-        String france = NumberFormat.getCurrencyInstance(Locale.FRANCE).format(payment);
-        // Write your code here.
+        //Input
+        Scanner sc= new Scanner(System.in);
+        int n=sc.nextInt();
+        String []s=new String[n+2];
+        for(int i=0;i<n;i++){
+            s[i]=sc.next();
+        }
+        sc.close();
 
-        System.out.println("US: " + us);
-        System.out.println("India: " + india);
-        System.out.println("China: " + china);
-        System.out.println("France: " + france);
+        //Write your code here
+        BigDecimal []bigDecimals = new BigDecimal[n];
+        for(int i = 0; i < n; i++) {
+            bigDecimals[i] = new BigDecimal(s[i]);
+        }
+        String tempString;
+        BigDecimal tempBigDecimal;
+        for(int i = 1; i < n; i++) {
+            for(int j = i; j >= 1; j--) {
+                if(bigDecimals[j].compareTo(bigDecimals[j-1]) > 0) {
+                    tempString = s[j-1];
+                    tempBigDecimal = bigDecimals[j-1];
+
+                    s[j-1] = s[j];
+                    bigDecimals[j-1] = bigDecimals[j];
+
+                    s[j] = tempString;
+                    bigDecimals[j] = tempBigDecimal;
+                }
+            }
+        }
+
+        //Output
+        for(int i=0;i<n;i++)
+        {
+            System.out.println(s[i]);
+        }
     }
 }
 

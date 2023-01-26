@@ -6,21 +6,22 @@ import java.text.*;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
+t java.security.*;
 
 public class Solution {
 
-    private static Scanner scan = new Scanner(System.in);
-
-    private static int B = scan.nextInt();
-    private static int H = scan.nextInt();
-
-    private static boolean flag = B > 0 && H > 0;
-
-    static {
-        if(!flag) {
-            System.out.println("java.lang.Exception: Breadth and height must be positive");
-        }
-    }
+//    private static Scanner scan = new Scanner(System.in);
+//
+//    private static int B = scan.nextInt();
+//    private static int H = scan.nextInt();
+//
+//    private static boolean flag = B > 0 && H > 0;
+//
+//    static {
+//        if(!flag) {
+//            System.out.println("java.lang.Exception: Breadth and height must be positive");
+//        }
+//    }
 
     public static void main(String[] args) throws IOException {
 
@@ -105,9 +106,50 @@ public class Solution {
 //            System.out.printf("%d %s%n", lineNumber++, line);
 //        } while(scan.hasNext());
 
-        if(flag){
-            int area=B*H;
-            System.out.print(area);
+//        if(flag){
+//            int area=B*H;
+//            System.out.print(area);
+//        }
+
+        DoNotTerminate.forbidExit();
+
+        try {
+            Scanner in = new Scanner(System.in);
+            int n = in.nextInt();
+            in.close();
+            //String s=???; Complete this line below
+            String s = String.valueOf(n);
+            //Write your code here
+
+
+            if (n == Integer.parseInt(s)) {
+                System.out.println("Good job");
+            } else {
+                System.out.println("Wrong answer.");
+            }
+        } catch (DoNotTerminate.ExitTrappedException e) {
+            System.out.println("Unsuccessful Termination!!");
         }
+    }
+}
+
+//The following class will prevent you from terminating the code using exit(0)!
+class DoNotTerminate {
+
+    public static class ExitTrappedException extends SecurityException {
+
+        private static final long serialVersionUID = 1;
+    }
+
+    public static void forbidExit() {
+        final SecurityManager securityManager = new SecurityManager() {
+            @Override
+            public void checkPermission(Permission permission) {
+                if (permission.getName().contains("exitVM")) {
+                    throw new ExitTrappedException();
+                }
+            }
+        };
+        System.setSecurityManager(securityManager);
     }
 }

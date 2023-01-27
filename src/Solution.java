@@ -262,17 +262,19 @@ public class Solution {
 //        // Complete this line
 //        // Complete this line
 
-        Scanner in = new Scanner(System.in);
-        while(in.hasNext()){
-            String IP = in.next();
-            System.out.println(IP.matches(new MyRegex().pattern));
-        }
+//        Scanner in = new Scanner(System.in);
+//        while(in.hasNext()){
+//            String IP = in.next();
+//            System.out.println(IP.matches(new MyRegex().pattern));
+//        }
+
+
     }
 }
 
-class MyRegex {
-    public String pattern = "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
-}
+//class MyRegex {
+//    public String pattern = "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
+//}
 
 //The following class will prevent you from terminating the code using exit(0)!
 //class DoNotTerminate {

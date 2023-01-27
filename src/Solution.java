@@ -286,24 +286,24 @@ public class Solution {
 //            }
 //        }
 
-        Scanner in = new Scanner(System.in);
-        int testCases = Integer.parseInt(in.nextLine());
-        while(testCases>0){
-            String line = in.nextLine();
-            Matcher m = Pattern.compile("<(.+)>(([^<>]+))</\\1>").matcher(line);
-            if(!m.find()) {
-                System.out.println("None");
-                testCases--;
-                continue;
-            }
-            m.reset();
-            while(m.find()) {
-                System.out.println(m.group(2));
-            }
-            //Write your code here
-
-            testCases--;
-        }
+//        Scanner in = new Scanner(System.in);
+//        int testCases = Integer.parseInt(in.nextLine());
+//        while(testCases>0){
+//            String line = in.nextLine();
+//            Matcher m = Pattern.compile("<(.+)>(([^<>]+))</\\1>").matcher(line);
+//            if(!m.find()) {
+//                System.out.println("None");
+//                testCases--;
+//                continue;
+//            }
+//            m.reset();
+//            while(m.find()) {
+//                System.out.println(m.group(2));
+//            }
+//            //Write your code here
+//
+//            testCases--;
+//        }
     }
 }
 

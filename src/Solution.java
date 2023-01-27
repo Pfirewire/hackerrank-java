@@ -1,13 +1,6 @@
-import java.util.Scanner;
 import java.io.*;
-import java.math.*;
 import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
-import java.security.*;
-import java.math.BigDecimal;
+import java.lang.reflect.*;
 
 //class Result {
 //
@@ -77,7 +70,7 @@ public class Solution {
 
 //    private static final Scanner scan = new Scanner(System.in);
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, Exception {
 
 //        Scanner scan = new Scanner(System.in);
 //        int i = scan.nextInt();
@@ -304,7 +297,32 @@ public class Solution {
 //
 //            testCases--;
 //        }
-    }
+
+        try{
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            int num = Integer.parseInt(br.readLine().trim());
+            Object o;// Must be used to hold the reference of the instance of the class Solution.Inner.Private
+
+
+            o = new Inner().new Private();
+            System.out.println(num + " is " + ((Solution.Inner.Private)o).powerof2(num));
+            //Write your code here
+
+            System.out.println("An instance of class: " + o.getClass().getCanonicalName() + " has been created");
+
+        }//end of try
+
+        catch (DoNotTerminate.ExitTrappedException e) {
+            System.out.println("Unsuccessful Termination!!");
+        }
+    }//end of main
+    static class Inner{
+        private class Private{
+            private String powerof2(int num){
+                return ((num&num-1)==0)?"power of 2":"not a power of 2";
+            }
+        }
+    }//end of Inner
 }
 
 //class MyRegex {
@@ -312,22 +330,22 @@ public class Solution {
 //}
 
 //The following class will prevent you from terminating the code using exit(0)!
-//class DoNotTerminate {
-//
-//    public static class ExitTrappedException extends SecurityException {
-//
-//        private static final long serialVersionUID = 1;
-//    }
-//
-//    public static void forbidExit() {
-//        final SecurityManager securityManager = new SecurityManager() {
-//            @Override
-//            public void checkPermission(Permission permission) {
-//                if (permission.getName().contains("exitVM")) {
-//                    throw new ExitTrappedException();
-//                }
-//            }
-//        };
-//        System.setSecurityManager(securityManager);
-//    }
-//}
+class DoNotTerminate {
+
+    public static class ExitTrappedException extends SecurityException {
+
+        private static final long serialVersionUID = 1;
+    }
+
+    public static void forbidExit() {
+        final SecurityManager securityManager = new SecurityManager() {
+            @Override
+            public void checkPermission(Permission permission) {
+                if (permission.getName().contains("exitVM")) {
+                    throw new ExitTrappedException();
+                }
+            }
+        };
+        System.setSecurityManager(securityManager);
+    }
+}

@@ -293,6 +293,7 @@ public class Solution {
             Matcher m = Pattern.compile("<(.+)>(([^<>]+))</\\1>").matcher(line);
             if(!m.find()) {
                 System.out.println("None");
+                testCases--;
                 continue;
             }
             m.reset();

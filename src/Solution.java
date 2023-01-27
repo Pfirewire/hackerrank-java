@@ -53,12 +53,12 @@ import java.math.BigDecimal;
 //
 //}
 
-class UsernameValidator {
-    /*
-     * Write regular expression here.
-     */
-    public static final String regularExpression = "^[a-zA-Z][a-zA-Z0-9_]{7,29}$";
-}
+//class UsernameValidator {
+//    /*
+//     * Write regular expression here.
+//     */
+//    public static final String regularExpression = "^[a-zA-Z][a-zA-Z0-9_]{7,29}$";
+//}
 
 public class Solution {
 
@@ -75,7 +75,7 @@ public class Solution {
 //        }
 //    }
 
-    private static final Scanner scan = new Scanner(System.in);
+//    private static final Scanner scan = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
 
@@ -275,15 +275,33 @@ public class Solution {
 //            System.out.println(IP.matches(new MyRegex().pattern));
 //        }
 
-        int n = Integer.parseInt(scan.nextLine());
-        while (n-- != 0) {
-            String userName = scan.nextLine();
+//        int n = Integer.parseInt(scan.nextLine());
+//        while (n-- != 0) {
+//            String userName = scan.nextLine();
+//
+//            if (userName.matches(UsernameValidator.regularExpression)) {
+//                System.out.println("Valid");
+//            } else {
+//                System.out.println("Invalid");
+//            }
+//        }
 
-            if (userName.matches(UsernameValidator.regularExpression)) {
-                System.out.println("Valid");
-            } else {
-                System.out.println("Invalid");
+        Scanner in = new Scanner(System.in);
+        int testCases = Integer.parseInt(in.nextLine());
+        while(testCases>0){
+            String line = in.nextLine();
+            Matcher m = Pattern.compile("<(.+)>(([^<>]+))</\\1>").matcher(line);
+            if(!m.find()) {
+                System.out.println("None");
+                continue;
             }
+            m.reset();
+            while(m.find()) {
+                System.out.println(m.group(2));
+            }
+            //Write your code here
+
+            testCases--;
         }
     }
 }

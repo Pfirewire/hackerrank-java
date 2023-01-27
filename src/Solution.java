@@ -212,42 +212,55 @@ public class Solution {
 //        System.out.println("China: " + china);
 //        System.out.println("France: " + france);
 
-        //Input
-        Scanner sc= new Scanner(System.in);
-        int n=sc.nextInt();
-        String []s=new String[n+2];
-        for(int i=0;i<n;i++){
-            s[i]=sc.next();
-        }
-        sc.close();
+//        //Input
+//        Scanner sc= new Scanner(System.in);
+//        int n=sc.nextInt();
+//        String []s=new String[n+2];
+//        for(int i=0;i<n;i++){
+//            s[i]=sc.next();
+//        }
+//        sc.close();
+//
+//        //Write your code here
+//        BigDecimal []bigDecimals = new BigDecimal[n];
+//        for(int i = 0; i < n; i++) {
+//            bigDecimals[i] = new BigDecimal(s[i]);
+//        }
+//        String tempString;
+//        BigDecimal tempBigDecimal;
+//        for(int i = 1; i < n; i++) {
+//            for(int j = i; j >= 1; j--) {
+//                if(bigDecimals[j].compareTo(bigDecimals[j-1]) > 0) {
+//                    tempString = s[j-1];
+//                    tempBigDecimal = bigDecimals[j-1];
+//
+//                    s[j-1] = s[j];
+//                    bigDecimals[j-1] = bigDecimals[j];
+//
+//                    s[j] = tempString;
+//                    bigDecimals[j] = tempBigDecimal;
+//                }
+//            }
+//        }
+//
+//        //Output
+//        for(int i=0;i<n;i++)
+//        {
+//            System.out.println(s[i]);
+//        }
 
-        //Write your code here
-        BigDecimal []bigDecimals = new BigDecimal[n];
-        for(int i = 0; i < n; i++) {
-            bigDecimals[i] = new BigDecimal(s[i]);
-        }
-        String tempString;
-        BigDecimal tempBigDecimal;
-        for(int i = 1; i < n; i++) {
-            for(int j = i; j >= 1; j--) {
-                if(bigDecimals[j].compareTo(bigDecimals[j-1]) > 0) {
-                    tempString = s[j-1];
-                    tempBigDecimal = bigDecimals[j-1];
+        Scanner scan = new Scanner(System.in);
+        int a = scan.nextInt();
+        int b = scan.nextInt();
+        int c = scan.nextInt();
+        // Complete this line
+        // Complete this line
 
-                    s[j-1] = s[j];
-                    bigDecimals[j-1] = bigDecimals[j];
-
-                    s[j] = tempString;
-                    bigDecimals[j] = tempBigDecimal;
-                }
-            }
-        }
-
-        //Output
-        for(int i=0;i<n;i++)
-        {
-            System.out.println(s[i]);
-        }
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+        // Complete this line
+        // Complete this line
     }
 }
 

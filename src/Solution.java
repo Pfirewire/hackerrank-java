@@ -53,6 +53,13 @@ import java.math.BigDecimal;
 //
 //}
 
+class UsernameValidator {
+    /*
+     * Write regular expression here.
+     */
+    public static final String regularExpression = "^[a-zA-Z][a-zA-Z0-9_]{7,29}$";
+}
+
 public class Solution {
 
 //    private static Scanner scan = new Scanner(System.in);
@@ -68,7 +75,7 @@ public class Solution {
 //        }
 //    }
 
-
+    private static final Scanner scan = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
 
@@ -268,7 +275,16 @@ public class Solution {
 //            System.out.println(IP.matches(new MyRegex().pattern));
 //        }
 
+        int n = Integer.parseInt(scan.nextLine());
+        while (n-- != 0) {
+            String userName = scan.nextLine();
 
+            if (userName.matches(UsernameValidator.regularExpression)) {
+                System.out.println("Valid");
+            } else {
+                System.out.println("Invalid");
+            }
+        }
     }
 }
 

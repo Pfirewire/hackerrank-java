@@ -249,19 +249,29 @@ public class Solution {
 //            System.out.println(s[i]);
 //        }
 
-        Scanner scan = new Scanner(System.in);
-        int a = scan.nextInt();
-        int b = scan.nextInt();
-        int c = scan.nextInt();
-        // Complete this line
-        // Complete this line
+//        Scanner scan = new Scanner(System.in);
+//        int a = scan.nextInt();
+//        int b = scan.nextInt();
+//        int c = scan.nextInt();
+//        // Complete this line
+//        // Complete this line
+//
+//        System.out.println(a);
+//        System.out.println(b);
+//        System.out.println(c);
+//        // Complete this line
+//        // Complete this line
 
-        System.out.println(a);
-        System.out.println(b);
-        System.out.println(c);
-        // Complete this line
-        // Complete this line
+        Scanner in = new Scanner(System.in);
+        while(in.hasNext()){
+            String IP = in.next();
+            System.out.println(IP.matches(new MyRegex().pattern));
+        }
     }
+}
+
+class MyRegex {
+    public String pattern = "^(?:[0-9]{1,3}\\.){3}[0-9]{1,3}$";
 }
 
 //The following class will prevent you from terminating the code using exit(0)!

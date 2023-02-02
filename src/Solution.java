@@ -71,20 +71,20 @@ public class Solution {
 
 //    private static final Scanner scan = new Scanner(System.in);
 
-    public static String getSmallestAndLargest(String s, int k) {
-        String smallest = s.substring(0, k);
-        String largest = s.substring(0, k);
-        // Complete the function
-        // 'smallest' must be the lexicographically smallest substring of length 'k'
-        // 'largest' must be the lexicographically largest substring of length 'k'
-        for(int i = 0; i < s.length() - k + 1; i++) {
-            String substr = s.substring(i, i+k);
-            if(substr.compareTo(smallest) < 0) smallest = substr;
-            if(substr.compareTo(largest) > 0) largest = substr;
-        }
-
-        return smallest + "\n" + largest;
-    }
+//    public static String getSmallestAndLargest(String s, int k) {
+//        String smallest = s.substring(0, k);
+//        String largest = s.substring(0, k);
+//        // Complete the function
+//        // 'smallest' must be the lexicographically smallest substring of length 'k'
+//        // 'largest' must be the lexicographically largest substring of length 'k'
+//        for(int i = 0; i < s.length() - k + 1; i++) {
+//            String substr = s.substring(i, i+k);
+//            if(substr.compareTo(smallest) < 0) smallest = substr;
+//            if(substr.compareTo(largest) > 0) largest = substr;
+//        }
+//
+//        return smallest + "\n" + largest;
+//    }
 
     public static void main(String[] args) throws IOException, Exception {
 
@@ -349,13 +349,22 @@ public class Solution {
 //        int end = in.nextInt();
 //        System.out.println(S.substring(start, end));
 
-        Scanner scan = new Scanner(System.in);
-        String s = scan.next();
-        int k = scan.nextInt();
-        scan.close();
+//        Scanner scan = new Scanner(System.in);
+//        String s = scan.next();
+//        int k = scan.nextInt();
+//        scan.close();
+//
+//        System.out.println(getSmallestAndLargest(s, k));
 
-        System.out.println(getSmallestAndLargest(s, k));
-
+        Scanner sc=new Scanner(System.in);
+        String A=sc.next();
+        /* Enter your code here. Print output to STDOUT. */
+        boolean isPalindrome = true;
+        for(int i = 0; i < A.length() - (i + 1); i++) {
+            if(A.substring(i, i+1).compareTo(A.substring(A.length()-(i+1), A.length()-(i))) != 0) isPalindrome = false;
+        }
+        if(isPalindrome) System.out.println("Yes");
+        else System.out.println("No");
     }
 //    static class Inner{
 //        private class Private{

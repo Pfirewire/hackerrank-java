@@ -71,6 +71,21 @@ public class Solution {
 
 //    private static final Scanner scan = new Scanner(System.in);
 
+    public static String getSmallestAndLargest(String s, int k) {
+        String smallest = s.substring(0, k);
+        String largest = s.substring(0, k);
+        // Complete the function
+        // 'smallest' must be the lexicographically smallest substring of length 'k'
+        // 'largest' must be the lexicographically largest substring of length 'k'
+        for(int i = 0; i < s.length() - k + 1; i++) {
+            String substr = s.substring(i, i+k);
+            if(substr.compareTo(smallest) < 0) smallest = substr;
+            if(substr.compareTo(largest) > 0) largest = substr;
+        }
+
+        return smallest + "\n" + largest;
+    }
+
     public static void main(String[] args) throws IOException, Exception {
 
 //        Scanner scan = new Scanner(System.in);
@@ -328,11 +343,18 @@ public class Solution {
 //        }
 //        System.out.printf("%s %s", A.substring(0,1).toUpperCase() + A.substring(1), B.substring(0,1).toUpperCase() + B.substring(1));
 
-        Scanner in = new Scanner(System.in);
-        String S = in.next();
-        int start = in.nextInt();
-        int end = in.nextInt();
-        System.out.println(S.substring(start, end));
+//        Scanner in = new Scanner(System.in);
+//        String S = in.next();
+//        int start = in.nextInt();
+//        int end = in.nextInt();
+//        System.out.println(S.substring(start, end));
+
+        Scanner scan = new Scanner(System.in);
+        String s = scan.next();
+        int k = scan.nextInt();
+        scan.close();
+
+        System.out.println(getSmallestAndLargest(s, k));
 
     }
 //    static class Inner{

@@ -1,6 +1,7 @@
 import java.io.*;
 import java.security.*;
 import java.lang.reflect.*;
+import java.util.Scanner;
 
 //class Result {
 //
@@ -298,31 +299,43 @@ public class Solution {
 //            testCases--;
 //        }
 
-        try{
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            int num = Integer.parseInt(br.readLine().trim());
-            Object o;// Must be used to hold the reference of the instance of the class Solution.Inner.Private
+//        try{
+//            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//            int num = Integer.parseInt(br.readLine().trim());
+//            Object o;// Must be used to hold the reference of the instance of the class Solution.Inner.Private
+//
+//
+//            o = new Inner().new Private();
+//            System.out.println(num + " is " + ((Solution.Inner.Private)o).powerof2(num));
+//            //Write your code here
+//
+//            System.out.println("An instance of class: " + o.getClass().getCanonicalName() + " has been created");
+//
+//        }//end of try
+//
+//        catch (DoNotTerminate.ExitTrappedException e) {
+//            System.out.println("Unsuccessful Termination!!");
+//        }
 
-
-            o = new Inner().new Private();
-            System.out.println(num + " is " + ((Solution.Inner.Private)o).powerof2(num));
-            //Write your code here
-
-            System.out.println("An instance of class: " + o.getClass().getCanonicalName() + " has been created");
-
-        }//end of try
-
-        catch (DoNotTerminate.ExitTrappedException e) {
-            System.out.println("Unsuccessful Termination!!");
+        Scanner sc=new Scanner(System.in);
+        String A=sc.next();
+        String B=sc.next();
+        System.out.println(A.length() + B.length());
+        if(A.compareTo(B) > 0) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
         }
-    }//end of main
-    static class Inner{
-        private class Private{
-            private String powerof2(int num){
-                return ((num&num-1)==0)?"power of 2":"not a power of 2";
-            }
-        }
-    }//end of Inner
+        System.out.printf("%s %s", A.substring(0,1).toUpperCase() + A.substring(1), B.substring(0,1).toUpperCase() + B.substring(1));
+
+    }
+//    static class Inner{
+//        private class Private{
+//            private String powerof2(int num){
+//                return ((num&num-1)==0)?"power of 2":"not a power of 2";
+//            }
+//        }
+//    }//end of Inner
 }
 
 //class MyRegex {
@@ -330,22 +343,22 @@ public class Solution {
 //}
 
 //The following class will prevent you from terminating the code using exit(0)!
-class DoNotTerminate {
-
-    public static class ExitTrappedException extends SecurityException {
-
-        private static final long serialVersionUID = 1;
-    }
-
-    public static void forbidExit() {
-        final SecurityManager securityManager = new SecurityManager() {
-            @Override
-            public void checkPermission(Permission permission) {
-                if (permission.getName().contains("exitVM")) {
-                    throw new ExitTrappedException();
-                }
-            }
-        };
-        System.setSecurityManager(securityManager);
-    }
-}
+//class DoNotTerminate {
+//
+//    public static class ExitTrappedException extends SecurityException {
+//
+//        private static final long serialVersionUID = 1;
+//    }
+//
+//    public static void forbidExit() {
+//        final SecurityManager securityManager = new SecurityManager() {
+//            @Override
+//            public void checkPermission(Permission permission) {
+//                if (permission.getName().contains("exitVM")) {
+//                    throw new ExitTrappedException();
+//                }
+//            }
+//        };
+//        System.setSecurityManager(securityManager);
+//    }
+//}

@@ -86,6 +86,20 @@ public class Solution {
 //        return smallest + "\n" + largest;
 //    }
 
+    static boolean isAnagram(String a, String b) {
+        if(a.length() != b.length()) return false;
+        String first = a.toLowerCase();
+        String second = b.toLowerCase();
+        // Complete the function
+        for(int i = 0; i < second.length(); i++) {
+            if(!first.contains(second.substring(i, i+1))) {
+                return false;
+            }
+            first = first.replaceFirst(second.substring(i, i+1), "");
+        }
+        return true;
+    }
+
     public static void main(String[] args) throws IOException, Exception {
 
 //        Scanner scan = new Scanner(System.in);
@@ -356,15 +370,22 @@ public class Solution {
 //
 //        System.out.println(getSmallestAndLargest(s, k));
 
-        Scanner sc=new Scanner(System.in);
-        String A=sc.next();
-        /* Enter your code here. Print output to STDOUT. */
-        boolean isPalindrome = true;
-        for(int i = 0; i < A.length() - (i + 1); i++) {
-            if(A.substring(i, i+1).compareTo(A.substring(A.length()-(i+1), A.length()-(i))) != 0) isPalindrome = false;
-        }
-        if(isPalindrome) System.out.println("Yes");
-        else System.out.println("No");
+//        Scanner sc=new Scanner(System.in);
+//        String A=sc.next();
+//        /* Enter your code here. Print output to STDOUT. */
+//        boolean isPalindrome = true;
+//        for(int i = 0; i < A.length() - (i + 1); i++) {
+//            if(A.substring(i, i+1).compareTo(A.substring(A.length()-(i+1), A.length()-(i))) != 0) isPalindrome = false;
+//        }
+//        if(isPalindrome) System.out.println("Yes");
+//        else System.out.println("No");
+
+        Scanner scan = new Scanner(System.in);
+        String a = scan.next();
+        String b = scan.next();
+        scan.close();
+        boolean ret = isAnagram(a, b);
+        System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
     }
 //    static class Inner{
 //        private class Private{
